@@ -17,24 +17,20 @@ const ActiveSprint: React.FC = () => {
   ]);
   const [selectedAssignee, setSelectedAssignee] = useState<string>('All');
 
-  // Handle assignee filter change
   const handleAssigneeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedAssignee(e.target.value);
   };
 
-  // Filter tasks based on selected assignee
   const filteredTasks = selectedAssignee === 'All'
     ? tasks
     : tasks.filter(task => task.assignee === selectedAssignee);
 
-  // Split tasks by status for the Kanban board
   const tasksByStatus = {
     'to-do': filteredTasks.filter(task => task.status === 'to-do'),
     'in-progress': filteredTasks.filter(task => task.status === 'in-progress'),
     'done': filteredTasks.filter(task => task.status === 'done'),
   };
 
-  // Handle drag end event
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
     if (!destination) return;
@@ -44,7 +40,6 @@ const ActiveSprint: React.FC = () => {
 
     if (sourceStatus === destinationStatus) return;
 
-    // Move the task to the new status
     const updatedTasks = tasks.map(task => {
       if (task.id === result.draggableId) {
         return { ...task, status: destinationStatus };
@@ -70,7 +65,6 @@ const ActiveSprint: React.FC = () => {
         </select>
       </div>
 
-      {/* Kanban Board with Drag-and-Drop */}
       <DragDropContext onDragEnd={onDragEnd}>
         <div className="kanban-board">
           {Object.entries(tasksByStatus).map(([status, tasks]) => (

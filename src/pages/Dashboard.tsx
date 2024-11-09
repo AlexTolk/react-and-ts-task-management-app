@@ -1,23 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Dashboard.scss'
 
-// Define the Task interface
 interface Task {
   id: string;
   title: string;
   status: 'completed' | 'active';
   description: string;
-  assignee: string; // New property for the task assignee
+  assignee: string;
 }
 
 const Dashboard: React.FC = () => {
-  // State for tasks, users, active tab, and selected user
   const [tasks, setTasks] = useState<Task[]>([]);
   const [users, setUsers] = useState<string[]>(['Alice', 'Bob', 'Charlie']); // Example list of users
   const [activeTab, setActiveTab] = useState<'product' | 'backlog'>('product');
   const [selectedUser, setSelectedUser] = useState<string>('All');
 
-  // Simulated data fetching using useEffect
   useEffect(() => {
     const fetchedTasks: Task[] = [
       { id: '1', title: 'Task 1', status: 'completed', description: 'Description of Task 1', assignee: 'Alice' },
@@ -27,17 +24,13 @@ const Dashboard: React.FC = () => {
     setTasks(fetchedTasks);
   }, []);
 
-  // Function to handle tab switching
   const handleTabClick = (tab: 'product' | 'backlog') => {
     setActiveTab(tab);
   };
-
-  // Function to handle user selection
   const handleUserChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedUser(e.target.value);
   };
 
-  // Filter tasks based on the selected user
   const filteredTasks = selectedUser === 'All'
     ? tasks
     : tasks.filter(task => task.assignee === selectedUser);
@@ -46,7 +39,6 @@ const Dashboard: React.FC = () => {
     <div className="dashboard">
       <h1>Main Page (Dashboard)</h1>
 
-      {/* Tab Buttons */}
       <div className="tabs">
         <button
           className={activeTab === 'product' ? 'active' : ''}
@@ -62,7 +54,6 @@ const Dashboard: React.FC = () => {
         </button>
       </div>
 
-      {/* Tab Content */}
       <div className="tab-content">
         {activeTab === 'product' ? (
           <div className="product-content">
@@ -77,7 +68,6 @@ const Dashboard: React.FC = () => {
         )}
       </div>
 
-      {/* User Selection Dropdown */}
       <div className="user-filter">
         <label htmlFor="user-select">Filter by User: </label>
         <select id="user-select" value={selectedUser} onChange={handleUserChange}>
@@ -88,7 +78,6 @@ const Dashboard: React.FC = () => {
         </select>
       </div>
 
-      {/* Filtered Tasks */}
       <div className="filtered-tasks">
         <h3>{selectedUser === 'All' ? 'All Tasks' : `Tasks for ${selectedUser}`}</h3>
         <ul>

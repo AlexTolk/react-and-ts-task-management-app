@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import '../styles/AdminPanel.scss'
-
-// Define the Task interface
 interface Task {
   id: string;
   title: string;
@@ -23,17 +21,14 @@ const AdminPanel: React.FC = () => {
     description: '',
   });
 
-  // Function to handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setTask({ ...task, [name]: value });
   };
 
-  // Function to handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (task.title && task.subtitle && task.author && task.assignee && task.timeEstimate && task.description.length >= 40) {
-      // Add validation and create task logic here
       console.log('Task Created:', task);
     } else {
       alert('Please fill in all fields and ensure the description is at least 40 characters.');
