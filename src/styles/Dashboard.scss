@@ -1,0 +1,56 @@
+@import './_variables';
+.dashboard {
+    h1 {
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+
+    .tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+
+        button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &.active {
+            background-color: $primary-color;
+            color: white;
+        }
+        }
+    }
+
+    .tab-content {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    .user-filter {
+        margin-bottom: 20px;
+
+        label {
+        margin-right: 10px;
+        font-weight: bold;
+        }
+    }
+
+    .filtered-tasks {
+        ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            background: #e9ecef;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+@import './_variables';
+
+.admin-panel {
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 400px;
+  
+      input,
+      textarea,
+      button {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+  
+      textarea {
+        resize: vertical;
+      }
+  
+      button {
+        background-color: $primary-color;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+  
+        &:hover {
+          background-color: $primary-hover;
+        }
+      }
+    }
+}

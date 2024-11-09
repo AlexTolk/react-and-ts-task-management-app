@@ -1,11 +1,10 @@
-// Variables for reusable colors
 $primary-color: #007bff;
 $primary-hover: #0056b3;
 $bg-color: #f4f7fa;
 $card-bg: #f8f9fa;
 $text-color: #333;
 
-// General styling
+
 body {
   font-family: Arial, sans-serif;
   background-color: $bg-color;
@@ -19,152 +18,7 @@ body {
   margin: auto;
 }
 
-// Dashboard Page
-.dashboard {
-  h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-  }
 
-  .tabs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-
-      &.active {
-        background-color: $primary-color;
-        color: white;
-      }
-    }
-  }
-
-  .tab-content {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
-
-  .user-filter {
-    margin-bottom: 20px;
-
-    label {
-      margin-right: 10px;
-      font-weight: bold;
-    }
-  }
-
-  .filtered-tasks {
-    ul {
-      list-style: none;
-      padding: 0;
-
-      li {
-        background: #e9ecef;
-        margin-bottom: 10px;
-        padding: 10px;
-        border-radius: 5px;
-      }
-    }
-  }
-}
-
-// Active Sprint Page
-.active-sprint {
-  h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-  }
-
-  .assignee-filter {
-    margin-bottom: 20px;
-
-    label {
-      margin-right: 10px;
-      font-weight: bold;
-    }
-  }
-
-  .kanban-board {
-    display: flex;
-    gap: 20px;
-
-    .kanban-column {
-      background: $card-bg;
-      padding: 20px;
-      border-radius: 5px;
-      flex: 1;
-      min-width: 200px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-      h3 {
-        font-size: 1.2em;
-        margin-bottom: 10px;
-        color: $text-color;
-      }
-
-      ul {
-        list-style: none;
-        padding: 0;
-
-        li {
-          background: white;
-          padding: 10px;
-          margin-bottom: 10px;
-          border-radius: 5px;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-      }
-    }
-  }
-}
-
-// Admin Panel Page
-.admin-panel {
-  h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 400px;
-
-    input,
-    textarea,
-    button {
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-
-    textarea {
-      resize: vertical;
-    }
-
-    button {
-      background-color: $primary-color;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-
-      &:hover {
-        background-color: $primary-hover;
-      }
-    }
-  }
-}
-// Navbar styling
 .navbar {
   background-color: #007bff;
   padding: 10px 20px;

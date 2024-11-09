@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/AdminPanel.scss'
 
 // Define the Task interface
 interface Task {

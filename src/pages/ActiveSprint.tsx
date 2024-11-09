@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
+import '../styles/ActiveSprint.scss'
 
-// Define the Task interface
 interface Task {
   id: string;
   title: string;
